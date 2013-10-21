@@ -1,3 +1,16 @@
 = @search.location
 
 |hopefully that worked
+
+/ | New Search
+/ = form_tag searches_path, :method => post do
+/   = text_field_tag :location
+/   = submit_tag 'New Search'
+
+
+/ | Nearby Spots ==>
+
+/ - for location in @search.nearbys(10)
+/   = link_to location.address, create_search_path
+/     = location.distance.round(2) "miles"
+/   br/

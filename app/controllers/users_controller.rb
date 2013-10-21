@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       render :new
     end
     @user = User.new params[:user]
-    @user.location = request.remote_ip
+    @user.ip_address = request.remote_ip
     if @user.save
       session[:user_id] = @user.id
       redirect_to @user

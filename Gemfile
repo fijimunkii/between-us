@@ -11,6 +11,7 @@ gem 'slim-rails'
 gem 'thin'
 
 gem 'geocoder'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'pry-rails'           # Causes rails console to open pry
