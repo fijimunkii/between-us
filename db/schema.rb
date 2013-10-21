@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131021155736) do
+ActiveRecord::Schema.define(:version => 20131021172257) do
 
   create_table "searches", :force => true do |t|
-    t.string   "name"
+    t.string   "location"
     t.float    "lat"
     t.float    "long"
     t.integer  "user_id"
