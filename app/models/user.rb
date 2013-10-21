@@ -8,9 +8,13 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  location        :string(255)
+#  latitude        :float
+#  longitude       :float
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :location, :password, :password_confirmation
+  attr_accessible :email, :location, :latitude, :longitude, :password, :password_confirmation
   has_many :searches, :dependent => :destroy
+  geocoded_by :location
+  after_validation :geocode
 end
