@@ -12,5 +12,5 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :password
-  has_many :searches
+  has_many :searches, :dependent => :destroy
 end
