@@ -1,6 +1,6 @@
 BetweenUsApp::Application.routes.draw do
 
-  get '/' => 'searches#new'
+  get '/' => 'user#new'
 
   resources :users do
     resources :searches
