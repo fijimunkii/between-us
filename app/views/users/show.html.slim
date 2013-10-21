@@ -1,3 +1,23 @@
 = @user.email
 
-| maybe have link to edit info or just do inline.. me thinks inline
+| Your location, press save to update
+= form_for @user do |f|
+  = f.text_field :location, @user.location, :placeholder => 'Enter your location..'
+  = f.submit 'Update Your Location'
+
+br/
+br/
+
+= form_for @search do |f|
+  = f.text_field :location, nil, :placeholder => "Type in a friend's location"
+  = f.submit 'See Between Us'
+
+br/
+br/
+
+.previous_searches
+  - @user.searches.each do |search|
+    link_to search
+
+  # WAY TO LINK TO DELETE... MAKE AN X TO REMOVE
+  # link_to 'delete', @article, :method => :delete, :confirm => :true

@@ -12,6 +12,6 @@
 #
 
 class Search < ActiveRecord::Base
-  attr_accessible :location, :lat, :long
+  attr_accessible :location, :latitude, :longitude
   belongs_to :user
 end
