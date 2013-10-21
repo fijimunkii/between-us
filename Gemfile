@@ -10,6 +10,8 @@ gem 'pg'
 gem 'slim-rails'
 gem 'thin'
 
+gem 'geocoder'
+
 group :development, :test do
   gem 'pry-rails'           # Causes rails console to open pry
   # https://github.com/rweng/pry-rails
