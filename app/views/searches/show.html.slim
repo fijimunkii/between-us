@@ -18,11 +18,23 @@ br/
 = "There are #{@miles_between.round} miles of uncharted territory between you guys"
 br/
 
-h1 = "#{@mid_point[0].city}, #{@mid_point[0].state}"
+h1 = "#{@mid_point[0].address}"
+/ h1 = "#{@mid_point[0].city}, #{@mid_point[0].state}"
 | is where you should hang out
 
-= gmaps4rails(@gmaps_json)
+/ = gmaps4rails(@gmaps_json)
+= gmaps("markers" => {"data" => @gmaps_json, "options" => {"rich_marker" => true } })
 
+br/
+| Stuff to do via Yelp
+br/
+br/
+- @yelp_response["businesses"].each do |business|
+  a href="#{business['url']}"
+    = business["name"]
+  = "  -  "
+  = business["snippet_text"]
+  br/
 / | New Search
 / = form_tag searches_path, :method => post do
 /   = text_field_tag :location

@@ -63,8 +63,17 @@ GEM
     execjs (2.0.2)
     faker (1.2.0)
       i18n (~> 0.5)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
+    foursquare2 (1.9.7)
+      faraday (~> 0.8)
+      faraday_middleware (>= 0.8)
+      hashie (>= 1.0, < 3.0.0)
     geocoder (1.1.8)
     gmaps4rails (1.5.6)
+    hashie (2.0.5)
     hike (1.2.3)
     i18n (0.6.5)
     journey (1.0.4)
@@ -82,6 +91,8 @@ GEM
     method_source (0.8.2)
     mime-types (1.25)
     multi_json (1.8.2)
+    multipart-post (1.2.0)
+    oauth (0.4.7)
     pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -164,6 +175,9 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    yelpster (1.2.0)
+      json (>= 1.1.1)
+      oauth (>= 0.4.5)
 
 PLATFORMS
   ruby
@@ -176,6 +190,7 @@ DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 3.2.1)
   faker
+  foursquare2
   geocoder
   gmaps4rails
   jquery-rails
@@ -191,3 +206,4 @@ DEPENDENCIES
   slim-rails
   thin
   uglifier (>= 1.0.3)
+  yelpster

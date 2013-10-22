@@ -19,7 +19,7 @@ Monday
 Tuesday/Wednesday
 ---
 
-2) As a user, I want to select multiple spots around my center point, so I'm not limited to one location.
+4) As a user, I want to select multiple spots around my center point, so I'm not limited to one location.
 
 2) As a user, I want recommendations of spots to eat, so I don't have to figure that out.
 

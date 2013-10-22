@@ -1,5 +1,11 @@
 class SearchesController < ApplicationController
 
+  def gmaps4rails_marker_picture
+    {
+      "rich_marker" => "<div class='my-marker'>hmmm</div>"
+    }
+  end
+
   def create
     search = Search.create params[:search]
     redirect_to [search.user, search]
@@ -25,12 +31,24 @@ class SearchesController < ApplicationController
       "lng" => "#{@search.longitude}",
       "lat" => "#{@search.latitude}"
     }
+    #  "draggable" => "true"
     @locations << {
       "description" => "Midpoint - #{@mid_point[0].city}, #{@mid_point[0].state}",
       "lng" => "#{mid_point_coords[1]}",
       "lat" => "#{mid_point_coords[0]}"
     }
     @gmaps_json = @locations.to_json
+
+    client = Yelp::Client.new
+    request = Yelp::V2::Search::Request::GeoPoint.new(
+      # :term => "cream puffs",
+      :latitude => mid_point_coords[0],
+      :longitude => mid_point_coords[1],
+      :limit => 10
+    )
+    @yelp_response = client.search(request)
+
+
   end
 
   def destroy

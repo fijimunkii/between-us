@@ -13,6 +13,9 @@ gem 'thin'
 gem 'geocoder'
 gem 'gmaps4rails'
 
+gem 'yelpster'
+gem 'foursquare2'
+
 group :development, :test do
   gem 'faker'
   gem 'pry-rails'           # Causes rails console to open pry
