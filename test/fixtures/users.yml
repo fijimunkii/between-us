@@ -1,0 +1,5 @@
+<% 1000.times do |n| %>
+user_<%= n %>:
+  email: <%= Faker::Internet.email %>
+  location: <%= Faker::Address.zip_code %>
+<% end %>

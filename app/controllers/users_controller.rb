@@ -10,11 +10,14 @@ class UsersController < ApplicationController
       # @user.location = request.location SHOULD WORK WHEN LIVE
       if @user.save
         session[:user_id] = @user.id
-        redirect_to @user
         flash[:notice] = "You have successfully created an account and have been logged in, #{@user.email}! "
+        redirect_to @user
+      else
+        flash[:error] = "Your passwords did not match."
+        render :new
       end
     else
-      flash[:error] = "That username is already taken or your passwords do not match."
+      flash[:error] = "That username is already taken."
       @user = User.new
       render :new
     end
@@ -22,11 +25,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+    @search = Search.new
   end
 
   def update
     user = User.find params[:id]
     user.update_attributes params[:user]
+    flash[:notice] = "Location updated."
     redirect_to user
   end
 

@@ -7,18 +7,19 @@ br/
 br/
 br/
 
-= form_tag "/users/#{@user.id}/searches"
-  = text_field_tag :location, nil, :placeholder => "Type in a friend's location"
-  = submit_tag 'See Between Us'
+= form_for [@user, @search] do |f|
+  = f.hidden_field :user_id, :value => @user.id
+  = f.text_field :location, :placeholder => "Type in a friend's location"
+  = f.submit 'See Between Us'
 
 br/
 br/
 
 .previous_searches
   - @user.searches.each do |search|
-    = link_to search.location, "/users/#{@user.id}/searches/#{search.id}"
+    = link_to search.location, [@user, search]
     = " "
-    = link_to "X", "/users/#{@user.id}/searches/#{search.id}", :method => :delete, :confirm => "Are you sure?"
+    = link_to "X", [@user, search], :method => :delete, :confirm => "Are you sure?"
     br/
 
 
@@ -27,4 +28,4 @@ br/
 br/
 br/
 
-= link_to "Delete Account", "/users/#{@user.id}", :method => :delete, :confirm => "Are you sure?"
+= link_to "Delete Account", @user, :method => :delete, :confirm => "Are you sure?"
