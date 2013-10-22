@@ -5,3 +5,8 @@
 #flash_notice{
   color:green;
 }
+
+.container{
+  width: 850px;
+  margin: 25px auto;
+}

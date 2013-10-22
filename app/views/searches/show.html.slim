@@ -1,3 +1,8 @@
+= form_for [@user, Search.new] do |f|
+  = f.hidden_field :user_id, :value => @user.id
+  = f.text_field :location, :placeholder => "Type in another friend's location"
+  = f.submit 'See Between Us'
+
 
 h1 = @user.location
 | is where you live
@@ -10,19 +15,13 @@ h1 = @search.location
 
 br/
 br/
+= "There are #{@miles_between.round} miles of uncharted territory between you guys"
 br/
 
-/ |you are
-/ - miles_between = Geocoder::Calculations.distance_between(locations)
-/ | miles apart
-br/
-br/
-br/
-
-- mid_point_coords = Geocoder::Calculations.geographic_center([@user.location, @search.location])
-- mid_point = Geocoder.search(mid_point_coords)
-h1 = "#{mid_point[0].city}, #{mid_point[0].state}"
+h1 = "#{@mid_point[0].city}, #{@mid_point[0].state}"
 | is where you should hang out
+
+= gmaps4rails(@gmaps_json)
 
 / | New Search
 / = form_tag searches_path, :method => post do
@@ -30,9 +29,12 @@ h1 = "#{mid_point[0].city}, #{mid_point[0].state}"
 /   = submit_tag 'New Search'
 
 
+/ THIS ONLY PULLS UP NEARBY OTHER SEARCHES
+/
 / | Nearby Spots ==>
-
-/ - for location in @search.nearbys(10)
-/   = link_to location.address, create_search_path
-/     = location.distance.round(2) "miles"
+/
+/ - for location in @search.nearbys(100)
+/   = link_to location.address, [@user, Search.new]
+/     = location.distance.round(2)
+/     | "miles"
 /   br/
