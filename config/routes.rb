@@ -8,7 +8,7 @@ BetweenUsApp::Application.routes.draw do
   get '/logout' => 'session#destroy'
 
   resources :users do
-    resources :searches
+    resources :searches #, except: [:index, :new, :edit, :update]
   end
 
 end

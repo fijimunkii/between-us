@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       # @user.location = request.location SHOULD WORK WHEN LIVE
       if @user.save
         session[:user_id] = @user.id
-        redirect_to "/users/#{@user.id}"
+        redirect_to @user
         flash[:notice] = "You have successfully created an account and have been logged in, #{@user.email}! "
       end
     else

@@ -1,21 +1,15 @@
 class SearchesController < ApplicationController
 
-  def index
-    @searches = Search.where(user_id = params[:user_id])
-  end
-
-  def new
-
-  end
-
   def create
     search = Search.new
     search.location = params[:location]
     search.user_id = params[:user_id]
     if search.save
-      redirect_to "/users/#{params[:user_id]}/searches/#{search.id}"
+      redirect_to [search.user, search]
+      # redirect_to "/users/#{params[:user_id]}/searches/#{search.id}"
     else
       flash[:error] = "Unfortunately something did not work.."
+      # redirect_to search.user
     end
   end
 
