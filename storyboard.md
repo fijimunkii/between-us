@@ -2,7 +2,7 @@ Between Us
 ========
 The Storyboard
 ----------
- 
+
 <br />
 <br />
 
@@ -36,19 +36,17 @@ Any and all of which can be bragged about on Facebook with a share button.
 User Stories
 ===
 
-1) As a user, I want to be able to use this site without logging in, so I can have instant gratification.
+2) As a user, I want to be able to sign up or log in, so I can save my progress.
 
 1) As a user, I want to enter my address so I can see what this app does.
 
-1) As a user, I want to enter someone else's address so I can see what this app does.
+1) As a user, I want to enter someone else's address so I can see what this app has to offer.
 
 2) As a user, I want to view the center point between both locations, so I can benefit from using this app.
 
 At this point it is a working product
 ---
 <br />
-
-2) As a user, I want to be able to sign up or log in, so I can save my progress.
 
 1) As a user, I want to be able to log out so I can end my session on the site.
 
@@ -64,6 +62,13 @@ At this point it is a working product
 
 4) As a user, I want lodging options, so I can stay overnight.
 
+4) As a user, I want this site to look pretty so I can feel good while using it
+
+2) As a user, I want to be able to log into facebook to not only create an account on Between Us but also automatically grab my information so I can use the site easier.
+
+2) As a user, I want to be able to share my experience of Between Us on Facebook so I can brag to my friends.
+
+2) As a user logged into Facebook, I want to be given recommendations of mutual friends who live close to the Between Us point.
 
 
 
@@ -79,7 +84,7 @@ I had been using a service called Between Us for finding cool stuff to do with a
 Bare Minimum Features
 ===
 For the sake of having this app a working product as soon as possible, I will tackle these features first:
-	
+
   - User authentication for saved searches
   - Initial Routes set up
   - Geographic center of two locations
@@ -132,39 +137,39 @@ Controllers
 	- show
 	- create
 	- destroy
-	
+
 	categories
 	- new
 	- edit
 	- update
 	- create
 	- destroy
-  
+
 	users
 	- new
 	- edit
 	- update
 	- create
 	- destroy
-	
+
 	session
 	- create
 	- new
 	- destroy
-	
+
 Routes
 ===
 
 	root to: '/searches/new'
-	
+
 	resources :searches, :only => [ :new, :show, :create, :destroy ]
-	
+
 	resources :users, :only => [ :new, :edit, :update, :create, :destroy ]
-	
+
 	resources :categories, :only => [ :new, :edit, :update, :create, :destroy ]
-	
-	
-	
+
+
+
 APIs
 ===
 	Google Maps
@@ -182,4 +187,4 @@ Technologies
 	Javascript AJAX front-end
 	JSON APIs
 	Browser Geolocation
-	
+
