@@ -10,7 +10,6 @@
 #  location        :string(255)
 #  latitude        :float
 #  longitude       :float
-#  ip_address      :binary
 #
 
 class User < ActiveRecord::Base
