@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :location, :latitude, :longitude, :password, :password_confirmation
   has_secure_password
   has_many :searches, :dependent => :destroy
-  geocoded_by :location
-  after_validation :geocode, :if => :location_changed?
+  acts_as_gmappable #gmaps4rails
+  geocoded_by :location #geocoder
+  after_validation :geocode, :if => :location_changed? #geocoder
 end

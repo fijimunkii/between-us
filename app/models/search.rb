@@ -14,6 +14,7 @@
 class Search < ActiveRecord::Base
   attr_accessible :location, :latitude, :longitude
   belongs_to :user
-  geocoded_by :location
-  after_validation :geocode
+  acts_as_gmappable #gmaps4rails
+  geocoded_by :location #geocoder
+  after_validation :geocode #geocoder
 end
