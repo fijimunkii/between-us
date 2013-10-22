@@ -1,6 +1,28 @@
-= @search.location
 
-|hopefully that worked
+h1 = @user.location
+| is where you live
+
+br/
+br/
+
+h1 = @search.location
+| is where the other person lives
+
+br/
+br/
+br/
+
+/ |you are
+/ - miles_between = Geocoder::Calculations.distance_between(locations)
+/ | miles apart
+br/
+br/
+br/
+
+- mid_point_coords = Geocoder::Calculations.geographic_center([@user.location, @search.location])
+- mid_point = Geocoder.search(mid_point_coords)
+h1 = "#{mid_point[0].city}, #{mid_point[0].state}"
+| is where you should hang out
 
 / | New Search
 / = form_tag searches_path, :method => post do

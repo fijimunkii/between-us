@@ -1,16 +1,19 @@
 class SearchesController < ApplicationController
 
+  def index
+    @searches = Search.where(user_id = params[:user_id])
+  end
+
   def new
+
   end
 
   def create
     search = Search.new
     search.location = params[:location]
-    # Geolocate.new location lat, long
-    search.lat = ''
-    search.long = ''
+    search.user_id = params[:user_id]
     if search.save
-      redirect_to search
+      redirect_to "/users/#{params[:user_id]}/searches/#{search.id}"
     else
       flash[:error] = "Unfortunately something did not work.."
     end
@@ -19,12 +22,11 @@ class SearchesController < ApplicationController
   def show
     @search = Search.find params[:id]
     @user = User.find params[:user_id]
-
   end
 
   def destroy
     Search.find(params[:id]).destroy
-    redirect_to "/users#{params[:user_id]}/searches"
+    redirect_to "/users/#{params[:user_id]}/"
   end
 
 end

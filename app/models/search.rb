@@ -14,6 +14,6 @@
 class Search < ActiveRecord::Base
   attr_accessible :location, :latitude, :longitude
   belongs_to :user
-  geocoded_by :address
+  geocoded_by :location
   after_validation :geocode
 end
