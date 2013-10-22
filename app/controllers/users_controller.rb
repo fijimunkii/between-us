@@ -26,6 +26,20 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @search = Search.new
+    @locations = Array.new
+    @locations << {
+      "description" => "#{@user.location}",
+      "lng" => "#{@user.longitude}",
+      "lat" => "#{@user.latitude}"
+    }
+    @user.searches.each do |search|
+      @locations << {
+        "description" => "#{search.location}",
+        "lng" => "#{search.longitude}",
+        "lat" => "#{search.latitude}"
+      }
+    end
+    @gmaps_json = @locations.to_json
   end
 
   def update

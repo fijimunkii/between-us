@@ -16,7 +16,10 @@ class Search < ActiveRecord::Base
   attr_accessible :location, :latitude, :longitude, :user_id
   belongs_to :user
   belongs_to :category
-  #acts_as_gmappable
-  geocoded_by :location #geocoder
-  after_validation :geocode #geocoder
+  acts_as_gmappable :process_geocoding => false
+  def gmaps4rails_address
+    self.location
+  end
+  geocoded_by :location
+  after_validation :geocode
 end
