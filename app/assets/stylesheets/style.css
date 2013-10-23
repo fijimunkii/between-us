@@ -23,6 +23,7 @@
   height: 50px;
   width: 450px;
   font-size: 28px;
+  margin: 0 0 20px 0;
 }
 .search input[type=submit]{
   width: 120px;
