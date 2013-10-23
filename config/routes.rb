@@ -8,9 +8,9 @@ BetweenUsApp::Application.routes.draw do
   get '/logout' => 'session#destroy'
 
   resources :users do
-    resources :searches #, except: [:index, :new, :edit, :update]
+    resources :searches do
+      get '/:directions_request_type' => 'searches#directions_request'
+    end
   end
-
-  get '/users/:user_id/searches/:id/:directions_request' => 'searches#directions_request'
 
 end

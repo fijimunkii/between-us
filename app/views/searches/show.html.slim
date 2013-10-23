@@ -1,20 +1,15 @@
-= form_for [@user, Search.new] do |f|
-  = f.hidden_field :user_id, :value => @user.id
-  = f.text_field :location, :placeholder => "Type in a friend's location"
-  = f.submit 'See Between Us'
+.search
+  = form_for [@user, Search.new] do |f|
+    = f.hidden_field :user_id, :value => @user.id
+    = f.text_field :location, :placeholder => "Type in another friend's location"
+    = f.submit 'See Between Us'
 
-h1 = "#{@mid_point[0].city}, #{@mid_point[0].state}"
-| is where you should hang out
-br/
-br/
-= "There are #{@miles_between.round} miles of uncharted territory between you guys"
+h1 = "There are #{@miles_between.round} miles of uncharted territory between you guys"
 
-#gmap
-  = gmaps(@gmap_default)
-
-#gmap_instructions
-
-#gmap_underbar
+.gmap_container
+  #gmap
+    = gmaps(@gmaps_json)
+  #gmap_underbar
   = link_to 'Driving Directions', "/users/#{@user.id}/searches/#{@search.id}/user_directions_driving"
   = " | "
   = link_to 'Bicycling Directions', "/users/#{@user.id}/searches/#{@search.id}/user_directions_bicycling"
@@ -35,6 +30,11 @@ br/
     = "  -  "
     = business["snippet_text"]
     br/
+
+
+#gmap_instructions
+
+
 
 - content_for :scripts
   javascript:
