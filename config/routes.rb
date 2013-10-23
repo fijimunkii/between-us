@@ -11,6 +11,6 @@ BetweenUsApp::Application.routes.draw do
     resources :searches #, except: [:index, :new, :edit, :update]
   end
 
-  post '/users/:user_id/searches/:id/user_directions_driving' => 'searches#user_directions_driving'
+  get '/users/:user_id/searches/:id/:directions_request' => 'searches#directions_request'
 
 end

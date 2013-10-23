@@ -20,10 +20,14 @@ Tuesday/Wednesday
 ---
 
 4) As a user, I want to select multiple spots around my center point, so I'm not limited to one location.
+this isn't possible with google maps.
+
+I have a database from geonames that I can parse into a database, from which I can query to accomplish this but not only will it take a while to do but I fear sql response times will be dreadful.
 
 2) As a user, I want recommendations of spots to eat, so I don't have to figure that out.
 DONEish
 4) As a user, I want transportation options provided for me, so I don't have to figure that out.
+DONE
 
 4) As a user, I want recommendations of stuff to do, so I don't have to figure that out.
 DONEish
