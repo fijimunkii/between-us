@@ -1,52 +1,38 @@
-= form_for [@user, Search.new] do |f|
-  = f.hidden_field :user_id, :value => @user.id
-  = f.text_field :location, :placeholder => "Type in another friend's location"
-  = f.submit 'See Between Us'
-
-
-h1 = @user.location
-| is where you live
-
-br/
-br/
-
-h1 = @search.location
-| is where the other person lives
-
+h1 = "#{@mid_point[0].city}, #{@mid_point[0].state}"
+| is where you should hang out
 br/
 br/
 = "There are #{@miles_between.round} miles of uncharted territory between you guys"
-br/
 
-h1 = "#{@mid_point[0].address}"
-/ h1 = "#{@mid_point[0].city}, #{@mid_point[0].state}"
-| is where you should hang out
+#gmap
+  = gmaps(@gmap_default)
 
-/ = gmaps4rails(@gmaps_json)
-= gmaps("markers" => {"data" => @gmaps_json, "options" => {"rich_marker" => true } })
+#gmap_instructions
 
-br/
-| Stuff to do via Yelp
-br/
-br/
-- @yelp_response["businesses"].each do |business|
-  a href="#{business['url']}"
-    = business["name"]
-  = "  -  "
-  = business["snippet_text"]
+#gmap_underbar
+  = link_to 'Driving Directions', "/users/#{@user.id}/searches/#{@search.id}/user_directions_driving", method: :post, remote: true
+
+#yelp
+  | Stuff to do via Yelp
   br/
-/ | New Search
-/ = form_tag searches_path, :method => post do
-/   = text_field_tag :location
-/   = submit_tag 'New Search'
+  br/
+  - @yelp_response["businesses"].each do |business|
+    a href="#{business['url']}"
+      = business["name"]
+    = "  -  "
+    = business["snippet_text"]
+    br/
 
-
-/ THIS ONLY PULLS UP NEARBY OTHER SEARCHES
-/
-/ | Nearby Spots ==>
-/
-/ - for location in @search.nearbys(100)
-/   = link_to location.address, [@user, Search.new]
-/     = location.distance.round(2)
-/     | "miles"
-/   br/
+/ - content_for :scripts
+/   javascript:
+/     Gmaps.map.callback = function() {
+/       function openInfoWindow(){
+/         var m, marker;
+/         marker = Gmaps.map.markers[2];
+/         m = marker.serviceObject;
+/         marker.infowindow.open(Gmaps.map.map, marker);
+/       }
+/       setTimeout(function(){
+/         openInfoWindow();
+/         }, 1000)
+/     }

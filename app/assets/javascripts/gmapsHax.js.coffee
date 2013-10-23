@@ -20,10 +20,11 @@
 #     google.maps.event.addListener marker, "mouseout", ->
 #       m.infowindow.close()
 
-$(document).on 'map:ready', -> openInfoWindow()
+# $(document).on 'map:ready', -> openInfoWindow()
 
-openInfoWindow = ->
-  event.preventDefault()
-  marker = Gmaps.map.markers[2]
-  m = marker.serviceObject
-  m.infowindow.open marker.map, marker
+# openInfoWindow = ->
+#   event.preventDefault()
+#   marker = Gmaps.map.markers[2]
+#   m = marker.serviceObject
+#   m.infowindow.open marker.map, marker
+

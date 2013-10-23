@@ -20,6 +20,9 @@ class Search < ActiveRecord::Base
   def gmaps4rails_address
     self.location
   end
+  # FIXME def gmaps4rails_sidebar
+  #   "#{self.location} #{self.gps}"
+  # end
   geocoded_by :location
   after_validation :geocode
 end

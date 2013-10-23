@@ -10,3 +10,23 @@
   width: 850px;
   margin: 25px auto;
 }
+
+.header form{
+  display: inline;
+}
+
+#gmap{
+  float: left;
+}
+
+#gmap_instructions{
+  float: left;
+}
+
+#gmap_underbar{
+  clear: both;
+}
+
+#yelp{
+  clear: both;
+}
