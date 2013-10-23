@@ -17,6 +17,7 @@ gem 'yelpster'
 gem 'foursquare2'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'faker'
   gem 'pry-rails'           # Causes rails console to open pry
   # https://github.com/rweng/pry-rails
