@@ -36,11 +36,6 @@ head
         = " | "
         = link_to 'logout', '/logout'
         = " | "
-        = form_for [@user, Search.new] do |f|
-          = f.hidden_field :user_id, :value => @user.id
-          = f.text_field :location, :placeholder => "Type in another friend's location"
-          = f.submit 'See Between Us'
-        = " | "
         = form_for @user do |f|
           = f.text_field :location, :value => @user.location, :placeholder => 'Enter your location..'
           = f.submit 'Update Your Location'

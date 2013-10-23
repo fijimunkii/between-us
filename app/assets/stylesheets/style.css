@@ -15,6 +15,20 @@
   display: inline;
 }
 
+.search{
+  text-align: center;
+}
+
+.search input{
+  height: 50px;
+  width: 450px;
+  font-size: 28px;
+}
+.search input[type=submit]{
+  width: 120px;
+  margin: 0 0 0 20px;
+}
+
 #gmap{
   float: left;
 }

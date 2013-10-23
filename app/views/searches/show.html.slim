@@ -1,3 +1,8 @@
+= form_for [@user, Search.new] do |f|
+  = f.hidden_field :user_id, :value => @user.id
+  = f.text_field :location, :placeholder => "Type in a friend's location"
+  = f.submit 'See Between Us'
+
 h1 = "#{@mid_point[0].city}, #{@mid_point[0].state}"
 | is where you should hang out
 br/
