@@ -121,6 +121,13 @@ class SearchesController < ApplicationController
       @gmap_default = gmap_directions_user
       @gmap_default["direction"]["options"]["travelMode"] = "TRANSIT"
       render :show
+
+      # avoidHighways: boolean
+      # avoidTolls : boolean
+      # travelMode : string, "DRIVING", "WALKING" or "BICYCLING"
+      # unitSystem : string, "IMPERIAL" or "METRIC"
+
+
     end
 
   end

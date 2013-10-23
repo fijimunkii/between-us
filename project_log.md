@@ -30,8 +30,9 @@ DONEish
 DONE
 
 4) As a user, I want recommendations of stuff to do, so I don't have to figure that out.
-DONEish
+sorta done
 Foursquare won't let me register an app....
+
 4) As a user, I want lodging options, so I can stay overnight.
 
 Thursday

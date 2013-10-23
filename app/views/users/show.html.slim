@@ -1,20 +1,3 @@
-= form_for @user do |f|
-  = f.text_field :location, :value => @user.location, :placeholder => 'Enter your location..'
-  = f.submit 'Update Your Location'
-
-br/
-br/
-br/
-br/
-
-= form_for [@user, @search] do |f|
-  = f.hidden_field :user_id, :value => @user.id
-  = f.text_field :location, :placeholder => "Type in a friend's location"
-  = f.submit 'See Between Us'
-
-br/
-br/
-
 .previous_searches
   - @user.searches.each do |search|
     = link_to search.location, [@user, search]
