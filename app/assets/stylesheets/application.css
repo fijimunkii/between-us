@@ -10,6 +10,6 @@
  *
  *= require_self
  *= require reset
+ *= require gmaps4rails
  *= require style
- *= require_tree .
  */
