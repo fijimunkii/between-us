@@ -16,11 +16,11 @@ class UsersController < ApplicationController
         flash[:notice] = "You have successfully created an account and have been logged in, #{@user.email}! "
         redirect_to @user
       else
-        flash[:error] = "Your passwords did not match."
+        flash[:error] = 'Your passwords did not match.'
         render :new
       end
     else
-      flash[:error] = "That username is already taken."
+      flash[:error] = 'That username is already taken.'
       @user = User.new
       render :new
     end
@@ -29,32 +29,19 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @search = Search.new
-    @locations = Array.new
-    @locations << {
-      "description" => "#{@user.location}",
-      "lng" => "#{@user.longitude}",
-      "lat" => "#{@user.latitude}"
-    }
-    @user.searches.each do |search|
-      @locations << {
-        "description" => "#{search.location}",
-        "lng" => "#{search.longitude}",
-        "lat" => "#{search.latitude}"
-      }
-    end
-    @gmaps_json = @locations.to_json
+    @gmaps_json = GmapsHelper.generate_previous_searches(@user)
   end
 
   def update
     user = User.find params[:id]
     user.update_attributes params[:user]
-    flash[:notice] = "Location updated."
+    flash[:notice] = 'Location updated.'
     redirect_to user
   end
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:notice] = "You have successfully deleted your account."
+    flash[:notice] = 'You have successfully deleted your account.'
     session[:user_id] = nil
     redirect_to '/'
   end
