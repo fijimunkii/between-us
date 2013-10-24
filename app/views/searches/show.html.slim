@@ -4,12 +4,13 @@
     = f.text_field :location, :placeholder => "Type in another friend's location"
     = f.submit 'See Between Us'
 
-h1 = "There are #{@miles_between.round} miles of uncharted territory between you guys"
-
 .gmap_container
+  h1 = "There are #{@miles_between.round} miles of uncharted territory between you guys"
   #gmap
     = gmaps(@gmaps_json)
   #gmap_underbar
+  = link_to 'Yelp', "/users/#{@user.id}/searches/#{@search.id}/yelp"
+  = " | "
   = link_to 'Driving Directions', "/users/#{@user.id}/searches/#{@search.id}/user_directions_driving"
   = " | "
   = link_to 'Bicycling Directions', "/users/#{@user.id}/searches/#{@search.id}/user_directions_bicycling"
@@ -20,31 +21,29 @@ h1 = "There are #{@miles_between.round} miles of uncharted territory between you
   = " | "
   = link_to 'Regular View', "/users/#{@user.id}/searches/#{@search.id}"
 
-#yelp
-  | Stuff to do via Yelp
-  br/
-  br/
-  - @yelp_response["businesses"].each do |business|
-    a href="#{business['url']}"
-      = business["name"]
-    = "  -  "
-    = business["snippet_text"]
-    br/
-
-
 #gmap_instructions
+  - if @yelp_response
+    - @yelp_response["businesses"].each do |business|
+      a href="#{business['url']}"
+        = business["name"]
+      = "  -  "
+      = business["snippet_text"]
+      br/
+      br/
 
 
 
 - content_for :scripts
-  javascript:
-    Gmaps.map.callback = function() {
-      function openInfoWindow(){
-        var m, marker;
-        marker = Gmaps.map.markers[2];
-        m = marker.serviceObject;
-        marker.infowindow.open(Gmaps.map.map, m);
+  - if @no_info_window
+  - else
+    javascript:
+      Gmaps.map.callback = function() {
+        function openInfoWindow(){
+          var m, marker;
+          marker = Gmaps.map.markers[2];
+          m = marker.serviceObject;
+          marker.infowindow.open(Gmaps.map.map, m);
+        }
+        openInfoWindow();
       }
-      openInfoWindow();
-    }
 

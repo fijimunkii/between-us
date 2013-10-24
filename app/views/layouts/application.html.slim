@@ -44,7 +44,11 @@ head
         = link_to 'signup', '/users/new'
         = " | "
         = link_to 'login', '/login'
-    .container
-      == yield
+    - if @container_size == "small"
+      .small_container
+        == yield
+    - else
+      .container
+        == yield
     .footer
       == yield :scripts

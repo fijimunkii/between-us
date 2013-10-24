@@ -8,9 +8,10 @@ BetweenUsApp::Application.routes.draw do
   get '/logout' => 'session#destroy'
 
   resources :users, except: [:edit, :index] do
-    get '/geolocate' => 'users#geolocate'
-    get '/geolocator' => 'users#geolocator'
+    # get '/geolocate' => 'users#geolocate'
+    # get '/geolocator' => 'users#geolocator'
     resources :searches, except: [:index, :new, :edit, :update] do
+      get '/yelp' => 'searches#yelp_request'
       get '/:directions_request_type' => 'searches#directions_request'
     end
   end

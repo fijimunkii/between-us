@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     end
     @search = Search.new
     @gmaps_json = GmapsHelper.generate_previous_searches(@user)
+    @container_size = 'small'
   end
 
   def update

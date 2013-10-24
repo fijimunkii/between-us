@@ -1,3 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Amatic+SC|Baumans);
+
+body {
+  background: url(/images/dot_map.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Baumans', cursive;
+}
+
+input {
+  font-family: 'Baumans', cursive;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover{
+  text-decoration: underline;
+}
+
 #flash_error{
   color:red;
 }
@@ -7,15 +31,32 @@
 }
 
 .container{
+  margin: 5% auto 0 auto;
   width: 1200px;
-  margin: 25px auto;
+  height: 550px;
+  background-color: white;
+  opacity:0.95;
+  filter:alpha(opacity=95);
+  border: 2px solid grey;
+  padding: 10px;
+}
+
+.small_container {
+  margin: 5% auto 0 auto;
+  width: 820px;
+  height: 575px;
+  background-color: white;
+  opacity:0.95;
+  filter:alpha(opacity=95);
+  border: 2px solid grey;
+  padding: 20px;
+}
+
+.header {
+  margin: 0 0 0 10px;
 }
 
 .header form{
-  display: inline;
-}
-
-#geolocate {
   display: inline;
 }
 
@@ -31,19 +72,27 @@
 }
 .search input[type=submit]{
   width: 120px;
-  margin: 0 0 0 20px;
+  margin: 0 0 0 10px;
+  background-color: #ccc;
+  font-family: 'Amatic SC', cursive;
 }
 
 .gmap_container{
   width: 820px;
   float: left;
   margin: 0 auto;
+  text-align: center;
+}
+
+.gmap_container h1 {
+  font-size: 50px;
+  font-family: 'Amatic SC', cursive;
 }
 
 #gmap_instructions{
   float: left;
   width: 380px;
-  height: 410px;
+  height: 475px;
   overflow-y: auto;
 }
 
@@ -52,8 +101,9 @@
   float: left;
 }
 
-@media screen and (max-width: 1200px){
+/*@media screen and (max-width: 1200px){
   .container{
     width: 100%;
   }
 }
+*/
