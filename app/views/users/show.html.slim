@@ -1,4 +1,5 @@
-
+- content_for :title do
+  = "Between Us"
 .search
   = form_for [@user, Search.new] do |f|
     = f.hidden_field :user_id, :value => @user.id
