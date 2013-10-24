@@ -6,9 +6,13 @@ class SearchesController < ApplicationController
   end
 
   def show
+    @user = User.find params[:id]
+    if current_user != @user
+      flash[:error] = 'You do not have access to that page.'
+      redirect_to '/'
+    end
+
     @search = Search.find params[:id]
-    @user = current_user
-    #User.find params[:user_id] # TODO refactor to current_user Clear?
 
     mid_point_coords = Geocoder::Calculations.geographic_center([@user.location, @search.location])
     mid_point = Geocoder.search(mid_point_coords)
@@ -20,7 +24,12 @@ class SearchesController < ApplicationController
   end
 
   def directions_request
-    @user = User.find params[:user_id]
+    @user = User.find params[:id]
+    if current_user != @user
+      flash[:error] = 'You do not have access to that page.'
+      redirect_to '/'
+    end
+
     @search = Search.find params[:search_id]
 
     mid_point_coords = Geocoder::Calculations.geographic_center([@user.location, @search.location])

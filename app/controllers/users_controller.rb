@@ -28,6 +28,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+    if current_user != @user
+      flash[:error] = 'You do not have access to that page.'
+      redirect_to '/'
+    end
     @search = Search.new
     @gmaps_json = GmapsHelper.generate_previous_searches(@user)
   end
