@@ -17,6 +17,8 @@ head
 
   title= content_for?(:title) ? yield(:title) : "Untitled"
 
+  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Amatic+SC|Baumans'
+
   / Included CSS Files
   = stylesheet_link_tag "application"
 
