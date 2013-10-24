@@ -15,6 +15,8 @@ gem 'gmaps4rails'
 
 gem 'geofsh'
 
+gem 'simple_form'
+
 gem 'underscore-rails'
 
 gem 'yelpster'
