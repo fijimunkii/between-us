@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     if User.where(email: params[:user][:email]).first.nil?
       @user = User.new params[:user]
-      # @user.location = request.location SHOULD WORK WHEN LIVE
+      @user.location = request.location
       if @user.save
         session[:user_id] = @user.id
         flash[:notice] = "You have successfully created an account and have been logged in, #{@user.email}! "
