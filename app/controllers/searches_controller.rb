@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
+    @user = User.find params[:user_id]
     if current_user != @user
       flash[:error] = 'You do not have access to that page.'
       redirect_to '/'
@@ -24,7 +24,7 @@ class SearchesController < ApplicationController
   end
 
   def directions_request
-    @user = User.find params[:id]
+    @user = User.find params[:user_id]
     if current_user != @user
       flash[:error] = 'You do not have access to that page.'
       redirect_to '/'

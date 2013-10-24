@@ -1,5 +1,7 @@
 Project Log
 ===
+
+
 Monday
 ---
 2) As a user, I want to be able to sign up or log in, so I can save my progress.
@@ -16,24 +18,21 @@ DONE
 DONE
 1) As a user, I want my previous searches available to me, so I can go back see what I've searched for.
 DONE
+
+
 Tuesday/Wednesday
 ---
-
-4) As a user, I want to select multiple spots around my center point, so I'm not limited to one location.
-this isn't possible with google maps.
-
-I have a database from geonames that I can parse into a database, from which I can query to accomplish this but not only will it take a while to do but I fear sql response times will be dreadful.
-
 2) As a user, I want recommendations of spots to eat, so I don't have to figure that out.
-DONEish
+DONE
 4) As a user, I want transportation options provided for me, so I don't have to figure that out.
 DONE
-
 4) As a user, I want recommendations of stuff to do, so I don't have to figure that out.
-sorta done
-Foursquare won't let me register an app....
+Sorta
 
+!!!!!!!!!!!!!!!!!!!!!NEED TO DO!!!!!!!!!!!!!!!!
 4) As a user, I want lodging options, so I can stay overnight.
+!!!!!!!!!!!!!!!!!!!!!NEED TO DO!!!!!!!!!!!!!!!!
+
 
 Thursday
 ---

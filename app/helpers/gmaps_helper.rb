@@ -1,5 +1,4 @@
 module GmapsHelper
-
   def self.generate_markers(user, search, mid_point, mid_point_coords)
     locations = Array.new
     locations << {
