@@ -50,4 +50,17 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
+  def geolocate
+    @user = User.find params[:user_id]
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def geolocator
+    raise
+    @lat_lng = cookies[:lat_lng].split("|")
+    redirect_to User.find params[:id]
+  end
+
 end

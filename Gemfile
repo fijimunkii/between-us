@@ -13,6 +13,8 @@ gem 'thin'
 gem 'geocoder'
 gem 'gmaps4rails'
 
+gem 'geofsh'
+
 gem 'underscore-rails'
 
 gem 'yelpster'
