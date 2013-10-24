@@ -5,6 +5,7 @@ class UsersController < ApplicationController
       redirect_to current_user
     end
     @user = User.new
+    @container_size = 'tiny'
   end
 
   def create

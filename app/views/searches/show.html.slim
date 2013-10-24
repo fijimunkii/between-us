@@ -9,6 +9,7 @@
   #gmap
     = gmaps(@gmaps_json)
   #gmap_underbar
+  br/
   = link_to 'Yelp', "/users/#{@user.id}/searches/#{@search.id}/yelp"
   = " | "
   = link_to 'Driving Directions', "/users/#{@user.id}/searches/#{@search.id}/user_directions_driving"

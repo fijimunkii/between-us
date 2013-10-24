@@ -1,6 +1,7 @@
 class SessionController < ApplicationController
 
   def new
+    @container_size = 'super_tiny'
   end
 
   def create

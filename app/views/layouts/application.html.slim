@@ -48,6 +48,12 @@ head
     - if @container_size == "small"
       .small_container
         == yield
+    - elsif @container_size == "tiny"
+      .tiny_container
+        == yield
+    - elsif @container_size == "super_tiny"
+      .super_tiny_container
+        == yield
     - else
       .container
         == yield

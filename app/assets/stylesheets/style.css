@@ -13,6 +13,13 @@ input {
   text-align: center;
 }
 
+input[type=submit]{
+  width: 120px;
+  margin: 0 0 0 10px;
+  background-color: #ccc;
+  font-family: 'Baumans', cursive;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -32,24 +39,77 @@ a:hover{
 .container{
   margin: 5% auto 0 auto;
   width: 1200px;
-  height: 550px;
+  height: 580px;
   background-color: white;
   opacity:0.95;
   filter:alpha(opacity=95);
   border: 2px solid grey;
   padding: 10px;
 }
+.container input[type=submit]{
+  width: 220px;
+  margin: 0 0 0 20px;
+}
 
 .small_container {
   margin: 5% auto 0 auto;
   width: 820px;
-  height: 575px;
+  height: 570px;
   background-color: white;
   opacity:0.95;
   filter:alpha(opacity=95);
   border: 2px solid grey;
   padding: 20px;
 }
+
+.small_container input[type=submit]{
+  width: 220px;
+  margin: 0 0 0 20px;
+}
+
+.tiny_container {
+  margin: 5% auto 0 auto;
+  width: 700px;
+  height: 295px;
+  background-color: white;
+  opacity:0.95;
+  filter:alpha(opacity=95);
+  border: 2px solid grey;
+  padding: 20px;
+}
+.tiny_container input {
+  font-size: 20px;
+  width: 185px;
+  margin: 0 10px 0 0;
+}
+.tiny_container input[type=submit]{
+  font-size: 20px;
+  width: 80px;
+  height: 32px;
+  font-family: 'Baumans', cursive;
+}
+.super_tiny_container{
+  margin: 5% auto 0 auto;
+  width: 500px;
+  height: 50px;
+  background-color: white;
+  opacity:0.95;
+  filter:alpha(opacity=95);
+  border: 2px solid grey;
+  padding: 50px;
+}
+.super_tiny_container input {
+  font-size: 20px;
+  width: 185px;
+  margin: 0 10px 0 0;
+}
+.super_tiny_container input[type=submit]{
+  font-size: 20px;
+  width: 80px;
+  height: 32px;
+  font-family: 'Baumans', cursive;
+}
+
 
 .header {
   margin: 0 0 0 10px;
@@ -68,12 +128,6 @@ a:hover{
   width: 450px;
   font-size: 28px;
   margin: 0 0 20px 0;
-}
-.search input[type=submit]{
-  width: 120px;
-  margin: 0 0 0 10px;
-  background-color: #ccc;
-  font-family: 'Amatic SC', cursive;
 }
 
 .gmap_container{
@@ -98,6 +152,21 @@ a:hover{
 #yelp{
   width: 380px;
   float: left;
+}
+
+.intro h4{
+  font-size: 15px;
+  text-align: center;
+}
+.intro h3{
+  font-size: 18px;
+}
+.intro h2{
+  text-align: center;
+  font-size: 25px;
+}
+.intro h1{
+  font-size: 40px;
 }
 
 /*@media screen and (max-width: 1200px){
