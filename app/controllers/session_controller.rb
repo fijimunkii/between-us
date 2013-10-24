@@ -13,10 +13,12 @@ class SessionController < ApplicationController
         redirect_to @user
       else
         flash[:error] = "Unfortunately you typed in the wrong password..."
+        @container_size = 'super_tiny'
         render :new
       end
     else
       flash[:error] = "Unfortunately, the email #{params[:email]} does not exist"
+      @container_size = 'super_tiny'
       render :new
     end
   end

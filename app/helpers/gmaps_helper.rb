@@ -11,11 +11,19 @@ module GmapsHelper
       'lng' => search.longitude,
       'lat' => search.latitude
     }
-    locations << {
-      'description' => "Between Us - #{mid_point[0].city}, #{mid_point[0].state}",
-      'lng' => mid_point_coords[1],
-      'lat' => mid_point_coords[0]
-    }
+    if mid_point.length > 0
+      locations << {
+        'description' => "Between Us - #{mid_point[0].city}, #{mid_point[0].state}",
+        'lng' => mid_point_coords[1],
+        'lat' => mid_point_coords[0]
+      }
+    else
+      locations << {
+        'description' => "Between Us - Probably somewhere in the middle of the ocean..",
+        'lng' => mid_point_coords[1],
+        'lat' => mid_point_coords[0]
+      }
+    end
     gmaps_json = locations.to_json
 
     output_json = {
@@ -24,20 +32,35 @@ module GmapsHelper
   end
 
   def self.generate_directions(user, search, mid_point, mid_point_coords, user_preference)
-
-    output_json = {
-      'markers' => self.generate_markers(user, search, mid_point, mid_point_coords)['markers'],
-      'direction' => {
-        'data' => {
-          'from' => user.location,
-          'to' => mid_point[0].address
-        },
-        'options' => {
-          'display_panel' => true,
-          'panel_id' => 'gmap_instructions'
+    if mid_point.length > 0
+      output_json = {
+        'markers' => self.generate_markers(user, search, mid_point, mid_point_coords)['markers'],
+        'direction' => {
+          'data' => {
+            'from' => user.location,
+            'to' => mid_point[0].address
+          },
+          'options' => {
+            'display_panel' => true,
+            'panel_id' => 'gmap_instructions'
+          }
         }
       }
-    }
+    else
+      output_json = {
+        'markers' => self.generate_markers(user, search, mid_point, mid_point_coords)['markers'],
+        'direction' => {
+          'data' => {
+            'from' => user.location,
+            'to' => ''
+          },
+          'options' => {
+            'display_panel' => true,
+            'panel_id' => 'gmap_instructions'
+          }
+        }
+      }
+    end
 
     case user_preference
     when 'user_directions_driving'

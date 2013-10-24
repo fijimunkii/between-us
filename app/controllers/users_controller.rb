@@ -18,11 +18,13 @@ class UsersController < ApplicationController
         redirect_to @user
       else
         flash[:error] = 'Your passwords did not match.'
+        @container_size = 'tiny'
         render :new
       end
     else
       flash[:error] = 'That username is already taken.'
       @user = User.new
+      @container_size = 'tiny'
       render :new
     end
   end
