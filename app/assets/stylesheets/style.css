@@ -150,7 +150,7 @@ a:hover{
 }
 
 #gmap_instructions a{
-  font-weight: bold;
+  text-decoration: underline;
 }
 
 #yelp{
