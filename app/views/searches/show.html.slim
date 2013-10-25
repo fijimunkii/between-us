@@ -9,33 +9,32 @@
 
 .gmap_container
   h1 = "There are #{@miles_between.round} miles of uncharted territory between you guys"
+  #gmap_underbar
+    a href="/users/#{@user.id}/searches/#{@search.id}/yelp"
+      = image_tag("/assets/icon_coffee.png", :mouseover => "/assets/icon_coffee_over.png")
+    a href="/users/#{@user.id}/searches/#{@search.id}/user_directions_driving"
+      = image_tag("/assets/icon_car.png", :mouseover => "/assets/icon_car_over.png")
+    a href="/users/#{@user.id}/searches/#{@search.id}/user_directions_bicycling"
+      = image_tag("/assets/bike.png", :mouseover => "/assets/icon_bike_over.png")
+    a href="/users/#{@user.id}/searches/#{@search.id}/user_directions_walking"
+      = image_tag("/assets/icon_walking.png", :mouseover => "/assets/icon_walking_over.png")
+    a href="/users/#{@user.id}/searches/#{@search.id}/user_directions_transit"
+      = image_tag("/assets/icon_subway.png", :mouseover => "/assets/icon_subway_over.png")
+    a href="/users/#{@user.id}/searches/#{@search.id}"
+      = image_tag("/assets/icon_go_back.png", :mouseover => "/assets/icon_go_back_over.png")
   #gmap
     = gmaps(@gmaps_json)
-  #gmap_underbar
-  br/
-  = link_to 'Yelp', "/users/#{@user.id}/searches/#{@search.id}/yelp"
-  = " | "
-  = link_to 'Driving Directions', "/users/#{@user.id}/searches/#{@search.id}/user_directions_driving"
-  = " | "
-  = link_to 'Bicycling Directions', "/users/#{@user.id}/searches/#{@search.id}/user_directions_bicycling"
-  = " | "
-  = link_to 'Walking Directions', "/users/#{@user.id}/searches/#{@search.id}/user_directions_walking"
-  = " | "
-  = link_to 'Transit Directions', "/users/#{@user.id}/searches/#{@search.id}/user_directions_transit"
-  = " | "
-  = link_to 'Regular View', "/users/#{@user.id}/searches/#{@search.id}"
-
-#gmap_instructions
-  - if @yelp_response
-    - @yelp_response["businesses"].each do |business|
-      a href="#{business['url']}"
-        = business["name"]
-      = "  -  "
-      = business["snippet_text"]
-      br/
-      br/
-
-
+/ #TODO SET CONDITIONAL FOR GMAP INSTRUCTIONS
+- if @gmap_sidebar
+  #gmap_instructions
+    - if @yelp_response
+      - @yelp_response["businesses"].each do |business|
+        a href="#{business['url']}"
+          = business["name"]
+        = "  -  "
+        = business["snippet_text"]
+        br/
+        br/
 
 - content_for :scripts
   - if @no_info_window
@@ -50,4 +49,3 @@
         }
         openInfoWindow();
       }
-

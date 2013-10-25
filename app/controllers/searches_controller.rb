@@ -39,8 +39,8 @@ class SearchesController < ApplicationController
 
     @gmaps_json = GmapsHelper.generate_directions(@user, @search, mid_point, mid_point_coords, params[:directions_request_type])
 
-    @no_info_window = 'not popping the info window'
-
+    @no_info_window = 'not showing info window'
+    @gmap_sidebar = 'showing the sidebar'
     render :show
   end
 
@@ -62,7 +62,7 @@ class SearchesController < ApplicationController
     @yelp_response = YelpHelper.generate_json(mid_point)
 
     @no_info_window = 'not popping the info window'
-
+    @gmap_sidebar = 'showing the sidebar'
     render :show
   end
 
