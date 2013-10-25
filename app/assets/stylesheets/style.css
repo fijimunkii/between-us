@@ -149,6 +149,10 @@ a:hover{
   overflow-y: auto;
 }
 
+#gmap_instructions a{
+  font-weight: bold;
+}
+
 #yelp{
   width: 380px;
   float: left;
