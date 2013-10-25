@@ -39,7 +39,7 @@ a:hover{
 .container{
   margin: 5% auto 0 auto;
   width: 1200px;
-  height: 580px;
+  height: 630px;
   background-color: white;
   opacity:0.95;
   filter:alpha(opacity=95);
@@ -54,7 +54,7 @@ a:hover{
 .small_container {
   margin: 5% auto 0 auto;
   width: 820px;
-  height: 590px;
+  height: 630px;
   background-color: white;
   opacity:0.95;
   filter:alpha(opacity=95);
