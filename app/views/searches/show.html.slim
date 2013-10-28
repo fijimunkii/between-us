@@ -38,14 +38,55 @@
 
 - content_for :scripts
   - if @no_info_window
+    javascript:
+      Gmaps.map.callback = function() {
+        function initializeAutoComplete() {
+
+          var input = /** @type {HTMLInputElement} */(document.getElementById('search_location'));
+          var autocomplete = new google.maps.places.Autocomplete(input);
+
+          google.maps.event.addListener(autocomplete, 'place_changed', function() {
+
+            var place = autocomplete.getPlace();
+            console.log(place);
+            console.log(place.formatted_address);
+            if (!place.geometry) {
+              // Inform the user that the place was not found and return.
+              input.className = 'notfound';
+              return;
+            }
+          });
+        }
+
+        initializeAutoComplete();
+
+      }
   - else
     javascript:
       Gmaps.map.callback = function() {
+
         function openInfoWindow(){
           var m, marker;
           marker = Gmaps.map.markers[2];
           m = marker.serviceObject;
           marker.infowindow.open(Gmaps.map.map, m);
         }
+
+        function initializeAutoComplete() {
+
+          var input = /** @type {HTMLInputElement} */(document.getElementById('search_location'));
+          var autocomplete = new google.maps.places.Autocomplete(input);
+
+          google.maps.event.addListener(autocomplete, 'place_changed', function() {
+
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+              // Inform the user that the place was not found and return.
+              input.className = 'notfound';
+              return;
+            }
+          });
+        }
         openInfoWindow();
+        initializeAutoComplete();
       }

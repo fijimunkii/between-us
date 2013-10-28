@@ -27,7 +27,8 @@ module GmapsHelper
     gmaps_json = locations.to_json
 
     output_json = {
-      'markers' => { 'data' => gmaps_json }
+      'markers' => { 'data' => gmaps_json },
+      "map_options" => { "libraries" => ["places"] }
     }
   end
 
@@ -42,7 +43,8 @@ module GmapsHelper
           },
           'options' => {
             'display_panel' => true,
-            'panel_id' => 'gmap_instructions'
+            'panel_id' => 'gmap_instructions',
+            'libraries' => ['places']
           }
         }
       }
@@ -56,7 +58,8 @@ module GmapsHelper
           },
           'options' => {
             'display_panel' => true,
-            'panel_id' => 'gmap_instructions'
+            'panel_id' => 'gmap_instructions',
+            'libraries' => ['places']
           }
         }
       }
