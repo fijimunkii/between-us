@@ -94,7 +94,7 @@ module GmapsHelper
         'lat' => search.latitude
       }
     end
-    result = locations.to_json
+    locations.to_json
   end
 
 end
