@@ -98,6 +98,7 @@ GEM
     mime-types (1.25)
     multi_json (1.8.2)
     multipart-post (1.2.0)
+    newrelic_rpm (3.7.1.182)
     oauth (0.4.7)
     pg (0.17.0)
     polyglot (0.3.3)
@@ -207,6 +208,7 @@ DEPENDENCIES
   gmaps4rails
   jquery-rails
   meta_request
+  newrelic_rpm
   pg
   pry-debugger
   pry-rails

@@ -19,6 +19,8 @@ gem 'simple_form'
 
 gem 'underscore-rails'
 
+gem 'newrelic_rpm'
+
 gem 'yelpster'
 gem 'foursquare2'
 
