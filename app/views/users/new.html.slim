@@ -16,7 +16,7 @@
   br/
 
 = form_for @user do |f|
-  = f.text_field :email, :placeholder => 'Email..'
+  = f.email_field :email, :placeholder => 'Email..'
   = f.password_field :password, :placeholder => 'Password..'
   = f.password_field :password_confirmation, :placeholder => 'Re-enter Password..'
   = f.submit 'Signup'
