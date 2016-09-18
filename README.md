@@ -1,5 +1,8 @@
 Between Us
 ========
+
+![Screenshot](/screenshot.jpg "Screenshot")
+
 The Storyboard
 ----------
 
